@@ -16,7 +16,6 @@ module Ignorify
     # Generates a hash with lowercase values mapped to actual values.
     #
     # returns Hash
-    #
     def self.file_list
       file_list = {}
       
@@ -34,7 +33,6 @@ module Ignorify
     # Creates a new file.
     # 
     # param {string} name - name of file.
-    #
     def self.create_file(name)
       request_url = REPOSITORY_RAW_URL + name + FILENAME
       file = Nokogiri::HTML(open(request_url))

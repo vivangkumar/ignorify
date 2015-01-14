@@ -20,7 +20,7 @@ module Ignorify
     # Prints the current ignorify version.
     # 
     # Example:
-    #   jaignorifyg version
+    #   ignorify version
     #
     # Prints to stdout.
     desc "version", "Get current ignorify version."

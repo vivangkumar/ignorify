@@ -7,17 +7,17 @@ A simple command line tool to pull .gitignore files.
 
 Install using gem
 
-	`gem install ignorify`
+	gem install ignorify
 
 Or clone the repository and build a gem:
 	
-	`gem build ignorify.gemspec`
+	gem build ignorify.gemspec
 
 And then install the gem.
 
 Alternatively, use
 	
-	`rake install`
+	rake install
 
 ## Docs
 
