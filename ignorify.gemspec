@@ -23,9 +23,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "thor", "~>0.19", ">= 0.19.1"
-  spec.add_development_dependency "nokogiri", "~>1.6", ">= 1.6.5"
-  spec.add_development_dependency "colorize", "~>0.7", ">= 0.7.5"
-  spec.add_development_dependency "rspec", "~>3.1", ">= 3.1.0"
   spec.add_development_dependency "codeclimate-test-reporter", "~>0.4", ">= 0.4.5"
+  spec.add_development_dependency "rspec", "~>3.1", ">= 3.1.0"
+  
+  spec.add_dependency "thor", "~>0.19", ">= 0.19.1"
+  spec.add_dependency "nokogiri", "~>1.6", ">= 1.6.5"
+  spec.add_dependency "colorize", "~>0.7", ">= 0.7.5"
 end

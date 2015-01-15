@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'ignorify'
+require_relative '../lib/ignorify'
 
 Ignorify::Ignorify.start(ARGV)
