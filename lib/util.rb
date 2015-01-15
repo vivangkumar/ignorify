@@ -15,7 +15,8 @@ module Ignorify
     # Crawls the github repository.
     # Generates a hash with lowercase values mapped to crawled values.
     #
-    # returns {Hash}
+    # Returns:
+    #   Hash
     def self.file_list
       file_list = {}
       
@@ -34,9 +35,11 @@ module Ignorify
     # We check to see if cURL is installed.
     #
     # As a fallback, scrape the file.
-    # param {string} name - name of file.
+    # Arguments:
+    #   name: (String)
     #
-    # returns {boolean}
+    # Returns:
+    #   Boolean
     def self.create_file(name)
       request_url = REPOSITORY_RAW_URL + name + FILENAME
       system("curl -V > /dev/null")

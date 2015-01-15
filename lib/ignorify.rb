@@ -9,7 +9,7 @@ module Ignorify
     # Lists all available ignorify commands.
     # 
     # Example:
-    #   ignorify list
+    #   >> ignorify list
     #
     # Prints to stdout.
     desc "list", "List available .gitignore files."
@@ -20,7 +20,7 @@ module Ignorify
     # Prints the current ignorify version.
     # 
     # Example:
-    #   ignorify version
+    #   >> ignorify version
     #
     # Prints to stdout.
     desc "version", "Get current ignorify version."
@@ -32,7 +32,10 @@ module Ignorify
     # Saves it to the working directory.
     #
     # Example:
-    #   ignorify create java
+    #   >> ignorify create java
+    #
+    # Arguments:
+    #   name: (String)
     #
     # Prints to stdout.
     desc "create <FILENAME>", "Downloads required .gitignore file"

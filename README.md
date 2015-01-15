@@ -1,6 +1,7 @@
 # Ignorify 
 [![Build Status](https://travis-ci.org/vivangkumar/ignorify.svg)](https://travis-ci.org/vivangkumar/ignorify)
 [![Code Climate](https://codeclimate.com/github/vivangkumar/ignorify/badges/gpa.svg)](https://codeclimate.com/github/vivangkumar/ignorify)
+[![Gem Version](https://badge.fury.io/rb/ignorify.svg)](http://badge.fury.io/rb/ignorify)
 
 A simple command line tool to pull and save .gitignore files!
 
