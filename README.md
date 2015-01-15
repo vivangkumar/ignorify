@@ -1,23 +1,27 @@
-# Ignorify
+# Ignorify 
+[![Build Status](https://travis-ci.org/vivangkumar/ignorify.svg)](https://travis-ci.org/vivangkumar/ignorify)
 
-A simple command line tool to pull .gitignore files.
-
+A simple command line tool to pull and save .gitignore files!
 
 ## Installation
 
 Install using gem
 
-	gem install ignorify
+`gem install ignorify`
 
 Or clone the repository and build a gem:
 	
-	gem build ignorify.gemspec
+`gem build ignorify.gemspec`
 
 And then install the gem.
 
 Alternatively, use
 	
-	rake install
+`rake install`
+
+## Running Tests
+
+`rspec`
 
 ## Docs
 
@@ -25,6 +29,8 @@ Alternatively, use
 
 Ignorify crawls the github/gitignore repository to get the lastest gitignore files.
 It then downloads and creates a .gitignore file in the directory.
+The file is fetched using cURL.
+But, if cURL is not installed, it manually grabs by crawling.
 
 ### Available commands
 
@@ -35,18 +41,26 @@ It then downloads and creates a .gitignore file in the directory.
 
 ### Usage
 
+`ignorify create java`
+
+will return
+
 ```
-ignorify create java
+Fetching gitignore...
+######################################################################## 100.0%
+.gitignore created
 ```
-will return a success message.
 
 If the file searched for is not available, an error message will be shown.
 
+`File was not found in the git repository`
+
 ### Dependencies
 
-- Thor
-- Nokogiri
-- Colorize
+- Thor: Library to build CLI's.
+- Nokogiri: A web crawler.
+- Colorize: Easily adds colours to the terminal.
+- Rspec: Ruby's favourite testing tool.
 
 ## Contributing
 

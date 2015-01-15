@@ -6,13 +6,13 @@ require "colorize"
 module Ignorify
   class Ignorify < Thor
 
-    # Lists all available commands.
+    # Lists all available ignorify commands.
     # 
     # Example:
     #   ignorify list
     #
     # Prints to stdout.
-    desc "list", "List all available .gitignore files."
+    desc "list", "List available .gitignore files."
     def list
       $stdout.puts Utils.file_list.keys
     end
@@ -34,12 +34,11 @@ module Ignorify
     # ignorify create java
     #
     # Prints to stdout.
-    desc "create <FILENAME>", "Places required .gitignore file"
+    desc "create <FILENAME>", "Downloads required .gitignore file"
     def create(name)
       file_list = Utils.file_list
       if file_list.has_key? name
-        Utils.create_file(file_list[name])
-        if File.exist?(Utils::FILENAME) && Utils::FILENAME.size != 0
+        if Utils.create_file(file_list[name])
           $stdout.puts ".gitignore created".green
         else
           $stdout.puts "Error creating .gitignore".red

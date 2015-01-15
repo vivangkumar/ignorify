@@ -30,16 +30,34 @@ module Ignorify
     end
 
     # Grabs the latest gitignore.
-    # Creates a new file.
-    # 
+    # Saves to .gitignore after wget.
+    # We check to see if cURL is installed.
+    #
+    # As a fallback, scrape the file.
     # param {string} name - name of file.
+    #
+    # returns {boolean}
     def self.create_file(name)
       request_url = REPOSITORY_RAW_URL + name + FILENAME
-      file = Nokogiri::HTML(open(request_url))
-      file_content = file.css('body p').text
+      system("curl -V > /dev/null")
 
-      File.open(FILENAME, "w") do |file|
-        file.write(file_content)
+      if $? == 0
+        system("echo Fetching gitignore...")
+        file_created = system("curl --progress -o #{FILENAME} #{request_url}")
+        return file_created
+      else
+        file = Nokogiri::HTML(open(request_url))
+        file_content = file.css('body p').text
+
+        File.open(FILENAME, "w") do |file|
+          file.write(file_content)
+        end
+
+        if File.exist?(FILENAME) && FILENAME.size > 0
+          return true
+        else
+          return false
+        end
       end
     end
   end

@@ -9,7 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["vivangkumar"]
   spec.email         = ["vivangkumar@gmail.com"]
   spec.summary       = "Pull and add gitignore files from the github repository to your project!"
-  spec.description       = "Pull and add gitignore files from the github repository to your project!"
+  spec.description   = "
+                        Pull and add gitignore files from the github repository to your project!
+                        Ignorify crawls the github/gitignore repository and fetches your .gitignore.
+                       "
   spec.homepage      = "https://github.com/vivangkumar/ignorify"
   spec.license       = "MIT"
 
@@ -20,8 +23,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_dependency "thor", "~>0.19", ">= 0.19.1"
-  spec.add_dependency "nokogiri", "~>1.6", ">= 1.6.5"
-  spec.add_dependency "colorize", "~>0.7", ">= 0.7.5"
-  spec.add_dependency "rspec", "~3.1", ">= 3.1.0"
+  spec.add_development_dependency "thor", "~>0.19", ">= 0.19.1"
+  spec.add_development_dependency "nokogiri", "~>1.6", ">= 1.6.5"
+  spec.add_development_dependency "colorize", "~>0.7", ">= 0.7.5"
+  spec.add_development_dependency "rspec", "~>3.1", ">= 3.1.0"
 end
