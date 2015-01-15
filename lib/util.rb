@@ -13,9 +13,9 @@ module Ignorify
 
     # Get file list from Github repository.
     # Crawls the github repository.
-    # Generates a hash with lowercase values mapped to actual values.
+    # Generates a hash with lowercase values mapped to crawled values.
     #
-    # returns Hash
+    # returns {Hash}
     def self.file_list
       file_list = {}
       
@@ -30,7 +30,7 @@ module Ignorify
     end
 
     # Grabs the latest gitignore.
-    # Saves to .gitignore after wget.
+    # Saves .gitignore.
     # We check to see if cURL is installed.
     #
     # As a fallback, scrape the file.

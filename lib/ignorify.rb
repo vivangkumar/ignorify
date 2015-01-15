@@ -28,10 +28,11 @@ module Ignorify
       $stdout.puts VERSION
     end
 
-    # Creates a new file in the directory.
-    # 
+    # Downloads the specified .gitignore file.
+    # Saves it to the working directory.
+    #
     # Example:
-    # ignorify create java
+    #   ignorify create java
     #
     # Prints to stdout.
     desc "create <FILENAME>", "Downloads required .gitignore file"

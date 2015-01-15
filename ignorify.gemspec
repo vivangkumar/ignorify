@@ -27,4 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "nokogiri", "~>1.6", ">= 1.6.5"
   spec.add_development_dependency "colorize", "~>0.7", ">= 0.7.5"
   spec.add_development_dependency "rspec", "~>3.1", ">= 3.1.0"
+  spec.add_development_dependency "codeclimate-test-reporter", "~>0.4", ">= 0.4.5"
 end

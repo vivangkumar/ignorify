@@ -1,5 +1,6 @@
 # Ignorify 
 [![Build Status](https://travis-ci.org/vivangkumar/ignorify.svg)](https://travis-ci.org/vivangkumar/ignorify)
+[![Code Climate](https://codeclimate.com/github/vivangkumar/ignorify/badges/gpa.svg)](https://codeclimate.com/github/vivangkumar/ignorify)
 
 A simple command line tool to pull and save .gitignore files!
 
@@ -21,7 +22,7 @@ Alternatively, use
 
 ## Running Tests
 
-`rspec`
+You can run the test suite using `rspec`
 
 ## Docs
 
@@ -61,6 +62,7 @@ If the file searched for is not available, an error message will be shown.
 - Nokogiri: A web crawler.
 - Colorize: Easily adds colours to the terminal.
 - Rspec: Ruby's favourite testing tool.
+- Codeclimate-Test-Reporter: Test coverage reporter.
 
 ## Contributing
 
