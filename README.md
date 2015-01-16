@@ -5,6 +5,17 @@
 
 A simple command line tool to pull and save .gitignore files!
 
+## Changelog
+
+### v1.0.0 (15-01-2015)
+
+- First release with all core functionality 
+
+### v1.0.1 (15-01-2015)
+
+- Fix some issues with the Ruby gem install.
+- Changed main executable path to relative.
+
 ## Installation
 
 Install using gem
