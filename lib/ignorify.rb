@@ -38,7 +38,7 @@ module Ignorify
     #   name: (String)
     #
     # Prints to stdout.
-    desc "create <FILENAME>", "Downloads required .gitignore file"
+    desc "create <FILENAME>", "Downloads required .gitignore file."
     def create(name)
       file_list = Utils.file_list
       if file_list.has_key? name
@@ -49,6 +49,27 @@ module Ignorify
         end
       else
         $stdout.puts "File was not found in the git repository".red
+      end
+    end
+
+    # Search for a filename <FILENAME>.
+    # Returns any matches in the gitignore list.
+    # 
+    # Example:
+    #   >> ignorify search ruby
+    #
+    # Arguments:
+    #   term: (String)
+    #
+    # Prints to stdout.
+    desc "search <FILENAME>", "Search for a gitignore and filter results."
+    def search(term)
+      results = Utils.search(term)
+      if results.length > 0
+        $stdout.puts "Available gitignore files:".green
+        $stdout.puts "#{results.join(", ")}"
+      else
+        $stdout.puts "No gitignore for #{term} was found".red
       end
     end
   end

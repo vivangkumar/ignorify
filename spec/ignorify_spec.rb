@@ -34,6 +34,19 @@ describe Ignorify::Ignorify do
     end
   end
 
+  describe "#search" do
+    it "should search the list for a term" do
+      args = %w[search ruby]
+      search_task = capture(:stdout) { Ignorify::Ignorify.start(args) }
+      expect(search_task).to eq("Available gitignore files:".green + "\n" + "ruby\n")
+    end
+    it "should show an error if a file cannot be found" do
+      args = %w[search xxctgft]
+      search_task = capture(:stdout) { Ignorify::Ignorify.start(args) }
+      expect(search_task).to eq("No gitignore for xxctgft was found".red + "\n")
+    end
+  end
+
   # Teardown modified .gitignore
   after(:all) do
     FileUtils.cp('spec/original/gitignore', '.gitignore')

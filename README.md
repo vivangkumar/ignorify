@@ -7,14 +7,21 @@ A simple command line tool to pull and save .gitignore files!
 
 ## Changelog
 
-### v1.0.0 (15-01-2015)
+### v1.1.0 (----)
 
-- First release with all core functionality 
+- Add search command to filter files.
+- Check for existing gitignore and prompt to overwrite. (TODO)
+- Code was refactored and optimised.
+- More tests were added.
 
 ### v1.0.1 (15-01-2015)
 
 - Fix some issues with the Ruby gem install.
 - Changed main executable path to relative.
+
+### v1.0.0 (15-01-2015)
+
+- First release with all core functionality 
 
 ## Installation
 
@@ -50,6 +57,7 @@ But, if cURL is not installed, it manually grabs by crawling.
 - `list`: Shows a list of all available files.
 - `help`: Shows available commands.
 - `version`: Returns the current version number.
+- `search <filename>`: Searches for a gitignore and returns results.
 - `create <filename>`: Places a .gitignore file in the current directory.
 
 ### Usage

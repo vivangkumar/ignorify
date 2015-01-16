@@ -88,6 +88,17 @@ module Ignorify
       end
     end
 
+    # Search for a term in the gitignore list.
+    # 
+    # Arguments:
+    #   term: (String)
+    # 
+    # Returns:
+    #   Array
+    def self.search(term)
+      return file_list.keys.grep(/#{term}/)
+    end
+
     private_class_method :fetch_using_curl
     private_class_method :crawl_and_fetch
   end
