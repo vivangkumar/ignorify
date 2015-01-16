@@ -5,6 +5,7 @@ module Ignorify
 
   # Utility class.
   # Generates file list and downloads gitignores.
+  # Also contians strategies depending on cURL.
   class Utils
 
     REPOSITORY_URL = "https://github.com/github/gitignore"
@@ -33,6 +34,7 @@ module Ignorify
     # Grabs the latest gitignore.
     # Saves .gitignore.
     # We check to see if cURL is installed.
+    # If installed, fetch using cURL
     #
     # As a fallback, scrape the file.
     # Arguments:
@@ -45,23 +47,48 @@ module Ignorify
       system("curl -V > /dev/null")
 
       if $? == 0
-        system("echo Fetching gitignore...")
-        file_created = system("curl --progress -o #{FILENAME} #{request_url}")
-        return file_created
+        return fetch_using_curl(request_url)
       else
-        file = Nokogiri::HTML(open(request_url))
-        file_content = file.css('body p').text
-
-        File.open(FILENAME, "w") do |file|
-          file.write(file_content)
-        end
-
-        if File.exist?(FILENAME) && FILENAME.size > 0
-          return true
-        else
-          return false
-        end
+        return crawl_and_fetch(request_url)
       end
     end
+
+    # Strategy to fetch using cURL.
+    # 
+    # Arguments:
+    #   request_url: (String)
+    #
+    # Returns:
+    #   Boolean
+    def self.fetch_using_curl(request_url)
+      system("echo Fetching gitignore...")
+      file_created = system("curl --progress -o #{FILENAME} #{request_url}")
+      return file_created
+    end
+
+    # Strategy to fetch by crawling the page.
+    #
+    # Arguments:
+    #   request_url: (String)
+    # 
+    # Returns:
+    #   Boolean
+    def self.crawl_and_fetch(request_url)
+      page = Nokogiri::HTML(open(request_url))
+      page_content = file.css('body p').text
+
+      File.open(FILENAME, "w") do |file|
+        file.write(page_content)
+      end
+
+      if File.exist?(FILENAME) && FILENAME.size > 0
+        return true
+      else
+        return false
+      end
+    end
+
+    private_class_method :fetch_using_curl
+    private_class_method :crawl_and_fetch
   end
 end

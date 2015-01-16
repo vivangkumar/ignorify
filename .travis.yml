@@ -12,7 +12,11 @@ rvm:
 # Install dependencies
 install: bundle install
 
-#Test
+# Test command
 script: rspec
+
+# Turn off notifications
+notifications:
+  email: false
 
 
