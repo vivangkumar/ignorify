@@ -99,6 +99,19 @@ module Ignorify
       return file_list.keys.grep(/#{term}/)
     end
 
+    # Check for existing .gitignore.
+    #
+    # Returns:
+    #   Boolean
+    #
+    def self.check_existing_gitignore
+      if File.exist?(FILENAME) && FILENAME.size > 0
+        return true
+      else
+        return false
+      end
+    end
+
     private_class_method :fetch_using_curl
     private_class_method :crawl_and_fetch
   end

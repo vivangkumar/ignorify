@@ -41,14 +41,33 @@ module Ignorify
     desc "create <FILENAME>", "Downloads required .gitignore file."
     def create(name)
       file_list = Utils.file_list
-      if file_list.has_key? name
-        if Utils.create_file(file_list[name])
-          $stdout.puts ".gitignore created".green
+      
+      # Create a file
+      create_file = Proc.new do |file_list|
+        if file_list.has_key?(name)
+          if Utils.create_file(file_list[name])
+            $stdout.puts ".gitignore created".green
+          else
+            $stdout.puts "Error creating .gitignore".red
+          end
         else
-          $stdout.puts "Error creating .gitignore".red
+          $stdout.puts "File was not found in the git repository".red
+        end
+      end
+
+      if Utils.check_existing_gitignore
+        response = ask("There is an already existing .gitignore file.\nDo you wish to overwrite?".red,
+          :limited_to => ["y", "n"])
+
+        case response
+        when "y"
+          create_file.call(file_list)
+        when "n"
+          $stdout.puts "Exiting.."
+          exit 1
         end
       else
-        $stdout.puts "File was not found in the git repository".red
+        create_file.call(file_list)
       end
     end
 
