@@ -69,6 +69,8 @@ Fetching gitignore...
 ######################################################################## 100.0%
 .gitignore created
 ```
+If there is an already existing .gitignore in the directory, you may choose to overwrite it.
+If you dont want to, the command will exit without changing any files.
 
 If the file searched for is not available, an error message will be shown.
 
