@@ -11,8 +11,8 @@ A simple command line tool to pull and save .gitignore files!
 
 - Add search command to filter files.
 - Check for existing gitignore and prompt to overwrite. (TODO)
-- Code was refactored and optimised.
-- More tests were added.
+- Code refactoring and optimisation.
+- More tests.
 
 ### v1.0.1 (15-01-2015)
 
