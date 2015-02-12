@@ -4,6 +4,10 @@ require_relative '../lib/ignorify/version'
 require "colorize"
 
 describe Ignorify::Ignorify do
+  before(:all) do
+    FileUtils.rm(".gitignore")
+  end
+
   describe "#list" do
     it "should list all available .gitignore files" do
       file_list = Ignorify::Utils.file_list.keys.join("\n") + "\n"

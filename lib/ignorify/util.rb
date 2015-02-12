@@ -10,7 +10,7 @@ module Ignorify
 
     REPOSITORY_URL = "https://github.com/github/gitignore"
     REPOSITORY_RAW_URL = "https://raw.githubusercontent.com/github/gitignore/master/"
-    FILENAME = ".gitignore";
+    FILENAME = ".gitignore"
 
     # Get file list from Github repository.
     # Crawls the github repository.

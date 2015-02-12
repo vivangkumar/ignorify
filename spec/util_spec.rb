@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/util'
+require_relative '../lib/ignorify/util'
 require "colorize"
 
 describe Ignorify::Utils do
