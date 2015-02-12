@@ -5,6 +5,10 @@
 
 A simple command line tool to pull and save .gitignore files!
 
+## TODO
+
+- Peek into .gitignore files before downloading them (v1.2.0)
+
 ## Changelog
 
 ### v1.1.0 (12-02-2015)
