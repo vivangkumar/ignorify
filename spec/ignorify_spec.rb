@@ -4,6 +4,10 @@ require_relative '../lib/ignorify/version'
 require "colorize"
 
 describe Ignorify::Ignorify do
+  before(:all) do
+    FileUtils.rm(".gitignore")
+  end
+
   describe "#list" do
     it "should list all available .gitignore files" do
       file_list = Ignorify::Utils.file_list.keys.join("\n") + "\n"
@@ -31,6 +35,19 @@ describe Ignorify::Ignorify do
       args = %w[version]
       version_task = capture(:stdout) { Ignorify::Ignorify.start(args) }
       expect(version_task).to eq(Ignorify::VERSION + "\n")
+    end
+  end
+
+  describe "#search" do
+    it "should search the list for a term" do
+      args = %w[search ruby]
+      search_task = capture(:stdout) { Ignorify::Ignorify.start(args) }
+      expect(search_task).to eq("Available gitignore files:".green + "\n" + "ruby\n")
+    end
+    it "should show an error if a file cannot be found" do
+      args = %w[search xxctgft]
+      search_task = capture(:stdout) { Ignorify::Ignorify.start(args) }
+      expect(search_task).to eq("No gitignore for xxctgft was found".red + "\n")
     end
   end
 
