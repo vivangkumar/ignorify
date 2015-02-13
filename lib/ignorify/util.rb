@@ -46,11 +46,7 @@ module Ignorify
       request_url = REPOSITORY_RAW_URL + name + FILENAME
       system("curl -V > /dev/null")
 
-      if $? == 0
-        return fetch_using_curl(request_url)
-      else
-        return crawl_and_fetch(request_url)
-      end
+      $? == 0 ? fetch_using_curl(request_url) : crawl_and_fetch(request_url)
     end
 
     # Strategy to fetch using cURL.
@@ -81,11 +77,7 @@ module Ignorify
         file.write(page_content)
       end
 
-      if File.exist?(FILENAME) && FILENAME.size > 0
-        return true
-      else
-        return false
-      end
+      File.exist?(FILENAME) && FILENAME.size > 0 ? true : false
     end
 
     # Search for a term in the gitignore list.
